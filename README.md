@@ -1,6 +1,6 @@
 # Mathematical Writeups
 
-### `integration.pdf`
+### [`integration.pdf`](https://github.com/komplexchemie/writeups/blob/main/integration.pdf)
 
 A how-to + some examples for:
 * integration via substitution,
