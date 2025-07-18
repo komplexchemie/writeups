@@ -1,0 +1,141 @@
+%
+% integration.tex
+% -- komplexchemie, 18.vii.25
+%
+\documentclass[12pt]{memoir}
+\usepackage[margin=1cm]{geometry}
+\usepackage{palatino, euler, mathtools, nopageno}
+\def\br{~\\[1em]}
+\def\dd{\mathrm d}
+\def\ee{\mathrm e}
+\def\ii{\mathrm i}
+\def\RR{\mathbf R}
+\begin{document}
+~\\[0em]
+\begin{center}
+\Large Single Variable Calculus: Integration Basics 
+\end{center}
+~\\[-2em]
+\begin{abstract}
+This is a simple tutorial on how to generate antiderivatives.
+We emphasize using the differential $\dd x$ as a function,
+in order to make the classic techniques (substitution,
+integration by parts) more intuitive. Instead of drilling
+arduous trigonometric substitutions, we work with Euler's formula.
+The general theme is to emphasize \textbf{pattern recognition}
+over rote memorization.
+\br
+Though not absolutely required,
+some familiarity with implicit differentiation may be helpful.
+\end{abstract}
+~\\[0em]
+\textit{In this writeup, $\log x$ denotes the natural logarithm.}
+\br
+The key to understanding the basic integration techniques is to
+have a clear idea of where they come from. Recall the chain rule
+and the product rule:
+\begin{align*}
+\frac{\dd(g\circ f)}{\dd x}(x)
+&= \frac{\dd g}{\dd x}(f(x))\cdot\frac{\dd f}{\dd x}(x)\\[1em]
+\frac{\dd(fg)}{\dd x}(x)
+&= \frac{\dd f}{\dd x}(x)\cdot g(x)
++ f(x)\cdot\frac{\dd g}{\dd x}(x)
+\end{align*}
+\textbf{Integration via substitution is a matter of recognizing
+the chain rule in reverse.} For example,
+\[\dd(x^2) = 2x\,\dd x\implies\int 2x\,\dd x
+= \int\dd(x^2) = x^2 + C.\]
+Here are a few more:
+\begin{align*}
+\int\frac{\sin x\,\dd x}{1 + \cos^2 x}
+&= -\int\frac{d(\cos x)}{1 + \cos^2 x}
+= -\int\frac{du}{1 + u^2}
+= -\arctan u + C_0
+= \boxed{-\arctan(\cos x) + C}\\[1.5em]
+\int x^2\ee^{x^3}\,dx &= \frac{1}{3}\int\ee^{x^3}\,\dd(x^3)
+= \frac{1}{3}\int\ee^u\,\dd u
+= \frac{1}{3}\ee^u + C_0
+= \boxed{\frac{1}{3}\ee^{x^3} + C}\\[1.5em]
+\int\frac{\dd x}{x\log x}
+&= \int\frac{1}{\log x}\dd(\log x)
+= \int\frac{\dd u}{u}
+= \log u + C_0
+= \boxed{\log\log x + C}\\[1.5em]
+\int\frac{x^3\,\dd x}{\sqrt{1 + x^2}}
+&= \frac{1}{2}\int\frac{x^2\,\dd(x^2)}{1 + x^2}
+= \frac{1}{2}\int\frac{u\,\dd u}{\sqrt{1 + u}}
+= \frac{1}{2}\int\frac{y^2 - 1}{y}2y\,\dd y
+= \int y^2 - 1\,\dd y\\[0.5em]
+&= \frac{1}{3}y(y^2 - 3) + C_0
+= \frac{1}{3}\sqrt{1 + u}(u - 2) + C_1
+= \boxed{\frac{1}{3}\sqrt{1 + x^2}(x^2 - 2) + C}
+\end{align*}
+From this viewpoint, the game is to find instances of 
+$\dd(f(x)) = f'(x)\,\dd x$.
+\vfill\pagebreak
+\noindent
+Similarly, 
+\textbf{integration by parts is a matter of recognizing the product
+rule in reverse.} For example,
+\begin{align*}
+\int x^2\sin x\,\dd x
+&= -\int x^2\,\dd(\cos x)
+= -\int\left(\dd\left(x^2\cos x\right) - \cos x\,\dd(x^2)\right)\\
+&= C_0 - x^2\cos x + 2\int x\cos x\,\dd x
+= C_0 - x^2\cos x + 2\int x\,\dd(\sin x)\\
+&= C_0 - x^2\cos x + 2\int\left(\dd(x\sin x) - \sin x\,\dd x\right)\\
+&= C_1 - x^2\cos x + 2x\sin x - 2\int\sin x\,\dd x\\
+&= \boxed{2x\sin x - (x^2 - 2)\cos x + C}
+\end{align*}
+From this viewpoint, the game is to find instances of
+$f(\dd g) = \dd(fg) - g(\dd f)$.
+\br
+Finally,
+\textbf{instead of trigonometric substutions, recall Euler's formula:}
+\[\ee^{\ii\theta} = \cos\theta + \ii\sin\theta\]
+Since cosine is even and sine is odd, we also get:
+\[\ee^{-\ii\theta} = \cos\theta - \ii\sin\theta\]
+After a bit of rearranging we get the following helpful identities:
+\[\cos\theta
+= \frac{\ee^{\ii\theta} + \ee^{-\ii\theta}}{2},\qquad
+\sin\theta
+= \frac{\ee^{\ii\theta} - \ee^{-\ii\theta}}{2i}.
+\]
+Slightly more generally,
+\[\cos(n\theta)
+= \frac{\ee^{\ii n\theta} + \ee^{-\ii n\theta}}{2},\qquad
+\sin(n\theta)
+= \frac{\ee^{\ii n\theta} - \ee^{-\ii n\theta}}{2i}.
+\]
+Here is the technique in action (some algebra steps skipped):
+\begin{align*}
+\int\sin^3\theta\cos^2\theta\,\dd\theta
+&= -\frac{1}{32i}\int
+\left(\ee^{3\ii\theta} - \ee^{-3\ii\theta}
+- 3\left(\ee^{\ii\theta} - \ee^{-\ii\theta}\right)\right)
+\left(\ee^{2\ii\theta} + 2 +
+\ee^{-2\ii\theta}\right)\,\dd\theta\\[0.5em]
+&= -\frac{1}{32i}\int\left(
+\ee^{5\ii\theta} - \ee^{-5\ii\theta}
+- \left(
+\ee^{3\ii\theta} - \ee^{-3\ii\theta}
+\right)
+- 2\left(
+\ee^{\ii\theta} - \ee^{-\ii\theta}
+\right)
+\right)\,\dd\theta\\[0.5em]
+&= \frac{1}{16}\int\left(-\sin(5\theta)
++ \sin(3\theta) + 2\sin\theta\right)\dd\theta\\[0.5em]
+&= \boxed{\frac{1}{80}\cos(5\theta)
+- \frac{1}{48}\cos(3\theta) - \frac{1}{8}\cos\theta + C}
+\end{align*}
+If you're skilled at algebra but not so much at trigonometry,
+Euler's formula is your friend.
+\br
+\hrule
+\br
+It is sometimes remarked that differentiation is a skill,
+whereas integration is an art. Hopefully this writeup communicates
+that, in certain contexts,
+\textbf{art reduces to applying skill in a thoughtful way}.
+\end{document}
