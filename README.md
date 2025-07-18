@@ -11,7 +11,7 @@ Source: `integration.tex`
 
 ### `faraday.pdf`
 
-(Coming soon.)
+_Forthcoming._
 
 Deriving Maxwell's equations with tensor notation / differential forms.
 
