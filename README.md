@@ -7,7 +7,7 @@ A how-to + some examples for:
 * integration by parts,
 * (avoiding) trig substitution.
 
-Source: `integration.tex`
+Source: [`integration.tex`](https://github.com/komplexchemie/writeups/blob/main/integration.tex)
 
 ### `faraday.pdf`
 
