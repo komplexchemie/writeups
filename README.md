@@ -14,3 +14,9 @@ Source: [`integration.tex`](https://github.com/komplexchemie/writeups/blob/main/
 Deriving Maxwell's equations with tensor notation / differential forms.
 
 Source: [`faraday.tex`](https://github.com/komplexchemie/writeups/blob/main/faraday.tex)
+
+### [`finite-dim.pdf`](https://github.com/komplexchemie/writeups/blob/main/finite-dim.pdf)
+
+Two cases of ``finite implies (injective iff surjective).''
+
+Source: [`finite-dim.tex`](https://github.com/komplexchemie/writeups/blob/main/finite-dim.tex)
