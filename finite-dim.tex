@@ -1,0 +1,117 @@
+%
+% finite-dim.tex
+% -- komplexchemie, 18.vii.25
+%
+\documentclass[12pt]{memoir}
+\usepackage[margin=1cm]{geometry}
+\usepackage{palatino, euler, mathtools, nopageno, amsthm, amssymb}
+\def\br{~\\[1em]}
+\def\inv{^{-1}}
+\DeclareMathOperator{\Span}{Span}
+\begin{document}
+~\\[0em]
+\begin{center}
+\Large Finite $\implies$ (Injective $\iff$ Surjective)
+\end{center}
+~\\[-2em]
+\begin{abstract}
+\noindent 
+This writeup establishes two facts:
+\begin{enumerate}
+\item If $f:S\to S$ where $|S| < \infty$,
+then $f$ injects iff $f$ surjects.
+\item If $T:V\to V$ where $\dim V < \infty$,
+then $T$ injects iff $T$ surjects.
+\end{enumerate}
+These are basically the same thing; we hope to make this
+clear by juxtaposing the arguments.
+\end{abstract}
+\subsection*{Finite Sets:\quad Injective $\implies$ Surjective}
+Let $S$ be a nonempty finite set with $N$ elements and let $f:S\to S$.
+\begin{center}
+\textit{\textbf{Claim:} If $f$ is injective, then $f$ is surjective.}
+\end{center}
+\begin{proof}
+Suppose $f$ is injective.
+Let $s\in S$, and consider the elements
+\[s,\quad f(s),\quad f^2(s),\quad\dots,\quad f^N(s)\]
+in $S$. Since $S$ only has $N$ elements, we have
+\[f^m(s) = f^M(s)\]
+for some $0\le m\le M$ (without loss of generality).
+But then by injectivity of $f$, we have
+\[s = f(f^{M - m - 1}(s)),\]
+which shows that $f$ is surjective.
+\end{proof}
+~\\[-2.5em]
+\subsection*{Finite Sets:\quad Surjective $\implies$ Injective}
+Let $S$ be a nonempty finite set with $N$ elements and let $f:S\to S$.
+\begin{center}
+\textit{\textbf{Claim:} If $f$ is surjective, then $f$ is injective.}
+\end{center}
+\begin{proof}
+Suppose $f$ is surjective. Pick $a, b\in S$ and suppose
+\[f(a) = f(b) =: c.\] Then $S\setminus\{c\}$ has $N - 1$ elements,
+hence $f\inv(S\setminus\{c\}) = S\setminus f\inv(\{c\})$ has at least
+$N - 1$ elements, hence $f\inv(\{c\})$ has at most one element,
+hence $a = b$, which shows that $f$ is injective.
+\end{proof}
+~\\[-2.5em]
+\subsection*{Finite Sets with Zero Elements}
+If $S = \varnothing$, then the only map from $S$ to $S$ is the null map,
+which consists of zero ordered pairs and is vacuously bijective.
+\vfill\pagebreak
+\subsection*{Finite Dimensional Vector Spaces:
+\quad Injective $\implies$ Surjective}
+Let $V$ be a nontrivial vector space of dimension $N$,
+and let $T:V\to V$.
+\begin{center}
+\textit{\textbf{Claim:} If $f$ is injective, then $f$ is surjective.}
+\end{center}
+\begin{proof}
+Suppose $T$ is injective, i.e. suppose $\ker T = \{0\}$. Let $v\in V$.
+\br
+Consider the vectors:
+\[v,\quad Tv,\quad T^2v,\quad\dots,\quad T^Nv.\]
+Since $V$ has dimension $N$, this is a linearly dependent set,
+i.e. there exists $\lambda = (\lambda_0,\dots,\lambda_N)\ne 0$
+such that
+\[\lambda_0v + \lambda_1Tv + \cdots + \lambda_NT^Nv = 0.\]
+Suppose $\lambda_0\ne 0$. Then we may divide by $\lambda_0$
+and use linearity of $T$ to obtain:
+\[v = T\left(-\frac{1}{\lambda_0}
+(\lambda_1v + \cdots + \lambda^NT^{N-1}v)\right).\]
+If $\lambda_0 = 0$, then $\lambda_1Tv + \cdots + \lambda_NT^Nv = 0$,
+and by linearity of $T$, we get
+$T(\lambda_1v + \cdots + \lambda_NT^{N-1}v) = 0$, i.e.
+\[\lambda_1v + \cdots + \lambda_NT^{N-1}v\in\ker T.\]
+But since $T$ is injective, this implies
+\[\lambda_1v + \cdots + \lambda_NT^{N-1}v = 0,\]
+and so we're back where we started. Since $\lambda\ne 0$,
+we eventually encounter a nonzero $\lambda_i$, which we may divide by,
+and then use linearity of $T$ as before.
+This proves $T$ is surjective.
+\end{proof}
+~\\[-2em]
+\subsection*{Finite Dimensional Vector Spaces:\quad
+Surjective $\implies$ Injective}
+Let $V$ be a nontrivial vector space of dimension $N$,
+and let $T:V\to V$.
+\begin{center}
+\textit{\textbf{Claim:} If $f$ is surjective, then $f$ is injective.}
+\end{center}
+\begin{proof}
+Suppose $T$ is surjective, i.e. suppose $T(V) = V$.
+Let $v\in\ker T$. Then $\Span(v)\subset\ker T$, so there
+exists a unique surjective linear map
+\[\widetilde T:V/\Span(v)\to V,\]
+which implies $\dim(V/\Span(v))\ge N$. But we also have
+\[\dim(V/\Span(v)) = N - \dim(\Span(v))\le N,\]
+so $V/\Span(v)$ has dimension $N$.
+This implies $\Span(v) = \{0\}$, hence $v = 0$.
+This proves $T$ is injective.
+\end{proof}
+~\\[-2em]
+\subsection*{Vector Spaces of Dimension Zero}
+If $V = \{0\}$, the only map from $V$ to $V$ is the zero map, which
+sends 0 to 0 and is trivially bijective.
+\end{document}
