@@ -1,0 +1,52 @@
+%
+% nth-root_2.tex
+% -- komplexchemie, 19.vii.25
+%
+\documentclass[12pt]{memoir}
+\usepackage[margin=1cm]{geometry}
+\usepackage{palatino, euler, amsthm}
+\newcommand{\ud}[1]{\frac{1}{#1}}
+\def\br{~\\[1em]}
+\begin{document}
+~\\[-1em]
+\begin{center}
+\LARGE Divergence of a Binomial Series
+\end{center}
+~\\[-1em]
+\begin{abstract}
+\noindent We show that the series
+\[\sum_{n\ge 1}\sqrt[n]2 - 1\]
+diverges. The solution was inspired by perturbation theory.
+\end{abstract}
+~\\[-1em]
+\begin{proof}
+The generalized binomial theorem states that
+\[(a + b)^x = \sum_{k\ge 0}{x\choose k}a^nb^{x - k}\]
+where $x$ is any real number, and
+\[{x\choose k} = \frac{x(x - 1)\cdots(x - k + 1)}{k!}\]
+denotes the generalized binomial coefficient.
+\br
+Note that $1 + 1 = 2$, and so $(1 + 1)^{1/n} - 1 = \sqrt[n]2 - 1$.
+\br
+If $(x, a, b) = (1/n, 1, 1)$, then
+\[{\ud n\choose k}
+= \ud{k!}\left(\ud n\right)\left(\ud n - 1\right)
+\left(\ud n - 2\right)\cdots \left(\ud n - k + 1\right)\]
+and
+\[\sum_{n\ge 1}\sqrt[n]2 - 1
+= \sum_{n\ge 1}\sum_{k\ge 1}{\ud n\choose k}\]
+Note that $\sum_{k\ge 1}{\ud n\choose k}$
+is a convergent alternating series,
+so we may bound it below using the first two terms.
+\br
+For example,
+\[\sum_{k\ge 1}{\ud 2\choose k}
+= \ud 2 - \ud 8 + \ud{16} - \frac{5}{128}
++ \frac{7}{256} -+\cdots\ge \ud 2 - \ud 8.\]
+Thus
+\[\sum_{n\ge 1}\sum_{k\ge 1}{\ud n\choose k}
+\ge\sum_{n\ge 1}\left(\ud n + \ud{2n}\left(\ud n - 1\right)\right)
+= \sum_{n\ge 1}\left(\ud{2n} + \ud{2n^2}\right),\]
+which diverges by comparision with the harmonic series.
+\end{proof}
+\end{document}
