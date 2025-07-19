@@ -1,5 +1,11 @@
 # Mathematical Writeups
 
+### [`nth-root_2.pdf`](https://github.com/komplexchemie/writeups/blob/main/nth-root_2.pdf)
+
+A fun way to show divergence of an interesting series.
+
+Source: [`nth-root_2.tex`](https://github.com/komplexchemie/writeups/blob/main/nth-root_2.tex)
+
 ### [`integration.pdf`](https://github.com/komplexchemie/writeups/blob/main/integration.pdf)
 
 A how-to + some examples for:
