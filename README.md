@@ -9,10 +9,10 @@ A how-to + some examples for:
 
 Source: [`integration.tex`](https://github.com/komplexchemie/writeups/blob/main/integration.tex)
 
-### `faraday.pdf`
+### [`faraday.pdf`](https://github.com/komplexchemie/writeups/blob/main/faraday.pdf)
 
 _Forthcoming._
 
 Deriving Maxwell's equations with tensor notation / differential forms.
 
-Source: `faraday.tex`
+Source: [`faraday.tex`](https://github.com/komplexchemie/writeups/blob/main/faraday.tex)
