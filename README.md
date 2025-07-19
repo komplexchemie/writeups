@@ -1,5 +1,11 @@
 # Mathematical Writeups
 
+### [`faraday.pdf`](https://github.com/komplexchemie/writeups/blob/main/faraday.pdf)
+
+Deriving Maxwell's equations with tensor notation / differential forms.
+
+Source: [`faraday.tex`](https://github.com/komplexchemie/writeups/blob/main/faraday.tex)
+
 ### [`integration.pdf`](https://github.com/komplexchemie/writeups/blob/main/integration.pdf)
 
 A how-to + some examples for:
@@ -8,12 +14,6 @@ A how-to + some examples for:
 * (avoiding) trig substitution.
 
 Source: [`integration.tex`](https://github.com/komplexchemie/writeups/blob/main/integration.tex)
-
-### [`faraday.pdf`](https://github.com/komplexchemie/writeups/blob/main/faraday.pdf)
-
-Deriving Maxwell's equations with tensor notation / differential forms.
-
-Source: [`faraday.tex`](https://github.com/komplexchemie/writeups/blob/main/faraday.tex)
 
 ### [`nth-root_2.pdf`](https://github.com/komplexchemie/writeups/blob/main/nth-root_2.pdf)
 
