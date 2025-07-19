@@ -11,8 +11,6 @@ Source: [`integration.tex`](https://github.com/komplexchemie/writeups/blob/main/
 
 ### [`faraday.pdf`](https://github.com/komplexchemie/writeups/blob/main/faraday.pdf)
 
-_Forthcoming._
-
 Deriving Maxwell's equations with tensor notation / differential forms.
 
 Source: [`faraday.tex`](https://github.com/komplexchemie/writeups/blob/main/faraday.tex)
