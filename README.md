@@ -1,5 +1,11 @@
 # Mathematical Writeups
 
+### [`edm.pdf`](https://github.com/komplexchemie/writeups/blob/main/edm.pdf)
+
+A small zine (32 half pages) on elementary discrete mathematics.
+
+Source: [`edm.tex`](https://github.com/komplexchemie/writeups/blob/main/edm.tex)
+
 ### [`faraday.pdf`](https://github.com/komplexchemie/writeups/blob/main/faraday.pdf)
 
 Deriving Maxwell's equations with tensor notation / differential forms.
