@@ -1,5 +1,11 @@
 # Mathematical Writeups
 
+### [`completeness.pdf`](https://github.com/komplexchemie/writeups/blob/main/completeness.pdf)
+
+Proving that the Archimedean property implies the equivalence of six different forms of completeness.
+
+Source: [`completeness.tex`](https://github.com/komplexchemie/writeups/blob/main/completeness.tex)
+
 ### [`edm.pdf`](https://github.com/komplexchemie/writeups/blob/main/edm.pdf)
 
 A small zine (32 half pages) on elementary discrete mathematics.
