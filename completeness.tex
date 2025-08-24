@@ -1,0 +1,148 @@
+%
+% completeness.tex
+% -- komplexchemie, 24.viii.25
+%
+\documentclass[oneside, 12pt]{memoir}
+\usepackage[margin=1cm, includefoot]{geometry}
+\usepackage{charter, euler}
+\usepackage{amsthm, shadethm, xcolor, amsmath, microtype}
+\newtheoremstyle{elegant}{0.8\baselineskip}{0.1\baselineskip}{\itshape}{}{\scshape}{.}{ }{}
+\newtheoremstyle{elegant-defn}{0.8\baselineskip}{0.1\baselineskip}{\normalfont}{}{\scshape}{.}{ }{}
+\theoremstyle{elegant}
+
+\definecolor{shadethmcolor}{HTML}{f7f8f8}
+\setlength\shadeboxsep{0.8em}
+\setlength\shadedtextwidth
+{\dimexpr\textwidth-2\shadeboxsep\relax}
+
+\theoremstyle{elegant}
+\newshadetheorem{thm}{Theorem}
+\def\RR{\mathbf R}
+\def\NN{\mathbf N}
+\begin{document}
+\pagestyle{plain}
+~\\[0em]
+\begin{center}
+\Large Forms of Completeness
+\end{center}
+~\\[-2em]
+\begin{abstract}
+We show that the Archimedean property implies the logical equivalence
+of six different forms of the completeness of $\RR$: the convergence
+of Cauchy sequences, the existence of infima and suprema, that property
+about nested closed intervals, the monotone convergence theorem,
+the Bolzano-Weierstrass theorem, and the intermediate value theorem.
+\end{abstract}
+~\\[-2em]
+\begin{enumerate}
+\setcounter{enumi}{-1}
+\item \textbf{Archimedean Property:} Let $\alpha, \beta\in\RR$.
+Then $\exists N\in\NN$ such that $\alpha < N\beta$.
+\item \textbf{Cauchy Completeness:} Let $(x_i)_i\subset\RR$.
+If $(x_i)_i$ is Cauchy, then $x_i\to x_\infty$ for some $x_\infty\in\RR$.
+\item \textbf{inf/sup Completeness:} Let $S\subseteq\RR$ be nonempty.\\
+If $S$ is bounded above, then $\sup S$ exists. If $S$ is bounded
+below, then $\inf S$ exists.
+\item \textbf{Interval Refinement Property:} Let
+$([x_i - \epsilon_i, x_i + \epsilon_i])_i$
+be a sequence of closed intervals such that
+\[[x_0 - \epsilon_0, x_0 + \epsilon_0]\supset[x_1 - \epsilon_1, x_1 + \epsilon_1]\supset [x_2 - \epsilon_2, x_2 + \epsilon_2]\supset\cdots
+\]
+with $\epsilon_i\to 0$.
+Then the intersection
+$\bigcap_i[x_i - \epsilon_i, x_i + \epsilon_i]$ is nonempty.
+\item \textbf{Monotone Convergence Theorem:} Let $(x_i)_i\subset\RR$.
+If $(x_i)_i$ is either strictly increasing and bounded above
+or strictly decreasing and bounded below, then $x_i\to x_\infty$ for some
+$x_\infty\in\RR$.
+\item \textbf{Bolzano-Weierstrass Theorem:}
+Let $(x_i)_i\subset\RR$. If $(x_i)_i$ is bounded,
+then $\exists (x_{\sigma(i)})_i\subseteq (x_i)_i$ such that
+$x_{\sigma(i)}\to x_\infty$ for some $x_\infty\in\RR$.
+\item \textbf{Intermediate Value Theorem:}
+Let $a, b\in \RR$ with $a < b$ and let $f:[a, b]\to\RR$ be continuous.
+If $f(a) < 0 < f(b)$, then $f(c) = 0$ for some $c\in (a, b)$.
+\end{enumerate}
+\hrule
+\begin{thm}
+Suppose 0 holds. Then 1 through 6 are logically equivalent.
+\end{thm}
+\begin{proof} We'll do $1\le 2\le 3\le 1$ and then
+$2\le 4\le 5\le 6\le 2$.
+\begin{itemize}
+\item[$1\le 2$] Suppose $S\subset\RR$ is nonempty and bounded above.
+Let $s_0\in S$ and let $M_0$ be an upper bound of $S$.
+Construct $(s_i)_i$ and $(M_i)_i$ as follows: if $\frac{s_i + M_i}{2}$
+is an upper bound of $S$, set $(s_{i+1}, M_{i+1}) = (s_i, \frac{s_i + M_i}{2})$. Otherwise there is some $x\in S$ such that $x\ge\frac{s_i + M_i}{2}$, and in this case we set $(s_{i+1}, M_{i+1}) = (x, M_i)$.
+The sequence $(s_0, M_0, s_1, M_1, s_2, M_2,\dots)$ is Cauchy, since
+$|s_{i+1} - M_{i+1}|\le\frac{1}{2}|s_i - M_i|$. Let $\alpha$ be the limit
+of this sequence. Then $M_i\to\alpha$ and $s_i\to\alpha$.
+So $\alpha$ is an upper bound of $S$, for if there were some $\alpha'$ such that $\alpha < \alpha' < M_i$
+for all $i\in\NN$, then $\alpha' - \alpha$ would be an $\epsilon$ such that
+$|\alpha - M_i|> \epsilon$ for all $i\in\NN$, which cannot happen since $M_i\to\alpha$.
+Furthermore, since $s_i\to\alpha$, for every $\epsilon > 0$ there is
+some $i\in\NN$ such that 
+$\alpha - s_i < \epsilon$, which is precisely the supremum condition.
+\item[$2\le 3$] Suppose we have a sequence of nested closed intervals
+$([x_i - \epsilon_i, x_i + \epsilon_i])_i$ with $r_i\to 0$. The set $S = \overline{(x_i - \epsilon_i)_i}$ is nonempty and bounded above by $x_i + \epsilon_i$ for all $i\in\NN$,
+and thus has a supremum. Let $\alpha = \sup S$. Then since $\alpha$ is
+an upper bound of $S$, $x_i - \epsilon_i\le \alpha$ for all $i\in\NN$.
+But since $\alpha$ is the
+least upper bound, any upper bound will be at least $\alpha$,
+in particular $\alpha\le x_i + \epsilon_i$ for all $i\in\NN$.
+Combining these two facts, we see that $\alpha\in[x_i -\epsilon_i, x_i + \epsilon_i]$
+for all $i\in\NN$, i.e. the intersection $\bigcap_i[x_i -\epsilon_i, x_i + \epsilon_i]$ contains $\alpha$
+and is thus nonempty.
+\vfill\pagebreak
+\item[$3\le 1$] Suppose $(x_i)_i\subset\RR$ is Cauchy. Let $a_i = \min\overline{\{x_j : i < j\}}$, $b_i = \max\overline{\{x_j : i < j\}}$.
+Then for every $\epsilon > 0$ there is some $N\in\NN$ such that for all $i\ge N$ we have 
+$b_i - a_i < \epsilon$. In particular for every $i\in\NN$ there is some
+$\sigma(i)\in\NN$ such that $b_{\sigma(i)} - a_{\sigma(i)} < 2^{-i}$.
+We then have
+\[[a_{\sigma(0)}, b_{\sigma(0)}]\supset[a_{\sigma(1)}, b_{\sigma(1)}]\supset[a_{\sigma(2)}, b_{\sigma(2)}]
+\supset\cdots
+\]
+with $b_{\sigma(i)} - a_{\sigma(i)}\to 0$, so the
+intersection $\bigcap_i[a_{\sigma(i)}, b_{\sigma(i)}]$ is nonempty. Pick $x_\infty\in\bigcap_i[a_{\sigma(i)}, b_{\sigma(i)}]$. Now,
+$a_{\sigma(i)} < x_\infty < b_{\sigma(i)}$ for all $i\in\NN$, so
+\[0 < x_\infty - a_{\sigma(i)} < b_{\sigma(i)} - a_{\sigma(i)}\qquad\text{and}\qquad
+a_{\sigma(i)} - b_{\sigma(i)} < x_\infty - b_{\sigma(i)} < 0\]
+for all $i\in\NN$. By the squeeze theorem, we have both $a_i\to x_\infty$ and $b_i\to x_\infty$.
+At least one of $\{(a_{\sigma(i)})_i, (b_{\sigma(i)})\}$ attains
+infinitely many distinct values, let's say $(a_{\sigma(i)})$ does this.
+Construct the sequence $(c_i)_i$ to be $(a_{\sigma(i)})_i$
+without repeats. This is a subsequence of both $(a_{\sigma(i)})_i$
+and $(x_i)_i$. But $a_{\sigma(i)}\to x_\infty$,
+so $c_i\to x_\infty$, hence $x_i\to x_\infty$.
+\item[$2\le 4$] Let $(x_i)_i\subset\RR$ be strictly increasing and bounded above.
+Then $\alpha = \sup_ix_i$ exists. Let $\epsilon > 0$. Then there is some $x_i$
+such that $\alpha < x_j + \epsilon$ for all $j > i$,
+hence $|\alpha - x_j| < \epsilon$ for all $j > i$,
+showing $x_j\to\alpha$.
+\item[$4\le 5$] Suppose $(x_i)_i\subset\RR$ is bounded.
+Take the subsequence $(x_{\sigma(i)})_i = (\min_{i < j}x_j)_i$.
+This sequence is strictly decreasing and bounded below, so it converges
+to some $x_\infty$.
+\item[$5\le 6$]
+Let $f:[a, b]\to\RR$ be continuous.
+Take the sequence $(x_i)_i$ that goes
+\[a,\quad b,\quad\frac{a + b}{2},\quad\frac{3a + b}{4},\quad\frac{a + 3b}{4},\quad\frac{7a + b}{8},\quad\frac{5a + 3b}{8},\quad\cdots\]
+this sequence is dense in $[a, b]$. Since continuous functions map dense subsets to dense subsets,
+$f_*([a, b])\cap[f(a), f(b)]$ forms a dense subset of $[f(a), f(b)]$.
+Construct the infinite array of subsequences by stipulating that row $n$ of the array consists of the
+subsequence of $(x_i)_i$ for which $f(x_i)\in[f(a)/n, f(b)/n]$ for all terms in the $n-1$th row (take row $0$ to be $(x_i)_i$).
+By density, the rows of this infinite array are nonempty, in fact each row has infinitely many entries.
+Since the terms of the infinite array are bounded, it follows that the leftmost column of the array is bounded. Thus the
+leftmost column has a convergent subsequence. By sequential continuity of $f$, the image of this convergent subsequence is itself a convergent
+sequence. Due to how the infinite array of subsequences was constructed, though, the image of the limit of the convergent subsequence
+has no choice but to be $0$. So the limit of the leftmost column sequence is a $c$ such that $f(c) = 0$.
+\item[$6\le 2$] Let $S\subset\RR$ be nonempty and bounded above and suppose
+that $\sup S$ does not exist. Let $T$ be the set of all upper bounds
+of $S$, and define $f:\RR\to\RR$ to take the values $-1$ on $\RR\setminus T$
+and $1$ on $T$. Then $f$ is continuous, but for all $x\in\RR$, we have $f\ne 0$,
+thereby falsifying the intermediate value theorem.
+So by contraposition, $\sup S$ must exist.
+\end{itemize}
+Hence, $1$ through $6$ are logically equivalent given $0$.
+\end{proof}
+\end{document}
