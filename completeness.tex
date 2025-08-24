@@ -109,7 +109,7 @@ $a_{\sigma(i)} < x_\infty < b_{\sigma(i)}$ for all $i\in\NN$, so
 a_{\sigma(i)} - b_{\sigma(i)} < x_\infty - b_{\sigma(i)} < 0\]
 for all $i\in\NN$. By the squeeze theorem, we have both $a_i\to x_\infty$ and $b_i\to x_\infty$.
 At least one of $\{(a_{\sigma(i)})_i, (b_{\sigma(i)})\}$ attains
-infinitely many distinct values, let's say $(a_{\sigma(i)})$ does this.
+infinitely many distinct values, let's say $(a_{\sigma(i)})_i$ does this.
 Construct the sequence $(c_i)_i$ to be $(a_{\sigma(i)})_i$
 without repeats. This is a subsequence of both $(a_{\sigma(i)})_i$
 and $(x_i)_i$. But $a_{\sigma(i)}\to x_\infty$,
@@ -120,7 +120,7 @@ such that $\alpha < x_j + \epsilon$ for all $j > i$,
 hence $|\alpha - x_j| < \epsilon$ for all $j > i$,
 showing $x_j\to\alpha$.
 \item[$4\le 5$] Suppose $(x_i)_i\subset\RR$ is bounded.
-Take the subsequence $(x_{\sigma(i)})_i = (\min_{i < j}x_j)_i$.
+Take the subsequence $(x_{\sigma(i)})_i = (\min\{x_j : j < i\})_i$.
 This sequence is strictly decreasing and bounded below, so it converges
 to some $x_\infty$.
 \item[$5\le 6$]
